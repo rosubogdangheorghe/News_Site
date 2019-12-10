@@ -1,8 +1,8 @@
-var canvas = document.getElementById('myCanvas');
-var ctx = canvas.getContext('2d');
+var myCanvas = document.getElementById('myCanvas');
+var ctx = myCanvas.getContext('2d');
 
-var cw = canvas.width;
-var ch = canvas.height;
+var cw = myCanvas.width;
+var ch = myCanvas.height;
 var angle = 0;
   
 var p = 10;
@@ -91,9 +91,95 @@ function triangle() {
 
 triangle();
 
-    /*var a=250;
-    var b=0;
-    var c = 465;
-    var d = 375;
-    var e = 35;
-    var f = 375*/
+/*Color Clock*/
+
+   function colorClock () {
+  var date = new Date();
+  var hours = date.getHours();
+if (hours < 10) {
+  hours = '0' + hours;
+}
+  var minutes = date.getMinutes();
+if (minutes < 10) {
+  minutes = '0' + minutes;
+}
+  var seconds = date.getSeconds();
+if (seconds < 10) {
+  seconds = '0' + seconds;
+}
+  var clockFace = hours + ':' + minutes + ':' + seconds;
+  var hexColor = '#' + seconds + hours + minutes;
+
+  document.getElementById('clock').innerHTML = clockFace;
+
+  document.getElementById('clock').style.background = hexColor;
+
+  setTimeout(function() {colorClock();}, 1000);
+console.log(clockFace);
+}
+colorClock();
+
+
+/*game areea*/
+
+var myGamePiece;
+
+
+function startGame() {
+    myGameArea.start();
+    myGamePiece = new component(30,30,"red",5,120);
+}
+
+ var myGameArea = {
+   canvas : document.createElement("canvas"),
+   start : function () {
+   this.canvas.width = 370;
+   this.canvas.height = 370;
+   this.context = this.canvas.getContext("2d");
+  document.body.insertBefore(this.canvas,document.body.childNodes[0]);
+   this.interval = setInterval(updateGameArea,20);
+   },
+   clear : function() {
+     this.context.clearRect(0,0,this.canvas.width, this.canvas.height);
+   }
+ }
+
+ function component(width, height, color, x, y) {
+   this.width = width;
+   this.height = height;
+   this.speedX = 0;
+   this.speedY = 0;
+   this.x = x;
+   this.y = y;
+   this.update = function() {
+   ctx = myGameArea.context;
+   ctx.fillStyle = color;
+   ctx.fillRect(this.x,this.y,this.width,this.height);
+   }
+   this.newPos = function() {
+     this.x += this.speedX;
+     this.y += this.speedY;
+   }
+ }
+
+
+
+ function updateGameArea() {
+   myGameArea.clear();
+   myGamePiece.x += 1;
+   myGamePiece.newPos();
+   myGamePiece.update();
+ }
+
+  function moveup() {
+    myGamePiece.speedY -= 1;
+  }
+   function movedown() {
+     myGamePiece.speedY += 1;
+   } 
+   function moveleft() {
+     myGamePiece.speedX -= 1;
+   } 
+  function moveright() {
+     myGamePiece.speedX += 1;
+   } 
