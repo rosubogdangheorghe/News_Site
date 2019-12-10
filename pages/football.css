@@ -39,7 +39,7 @@ a:hover {
 /*Main Style*/
 
 #main {
-    width: 81%;
+    width: 71%;
     background-color: rgba(145, 221, 241,0.5);
     margin-bottom: 1%;
     margin-left: 1%;
@@ -68,7 +68,7 @@ a:hover {
 /*Aside Style*/
 
 #sidebar {
-    width: 15%;
+    width: 25%;
     margin-right: 1%;
     margin-bottom: 1%;
     padding-top: 1%;
