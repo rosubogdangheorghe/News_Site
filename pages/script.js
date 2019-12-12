@@ -93,34 +93,34 @@ triangle();
 
 /*Color Clock*/
 
-   function colorClock () {
-  var date = new Date();
-  var hours = date.getHours();
-if (hours < 10) {
-  hours = '0' + hours;
-}
-  var minutes = date.getMinutes();
-if (minutes < 10) {
-  minutes = '0' + minutes;
-}
-  var seconds = date.getSeconds();
-if (seconds < 10) {
-  seconds = '0' + seconds;
-}
-  var clockFace = hours + ':' + minutes + ':' + seconds;
-  var hexColor = '#' + seconds + hours + minutes;
+function colorClock() {
+    var date = new Date();
+    var hours = date.getHours();
+    if (hours < 10) {
+        hours = '0' + hours;
+    }
+    var minutes = date.getMinutes();
+    if (minutes < 10) {
+        minutes = '0' + minutes;
+    }
+    var seconds = date.getSeconds();
+    if (seconds < 10) {
+        seconds = '0' + seconds;
+    }
+    var clockFace = hours + ':' + minutes + ':' + seconds;
+    var hexColor = '#' + seconds + hours + minutes;
 
-  document.getElementById('clock').innerHTML = clockFace;
+    document.getElementById('clock').innerHTML = clockFace;
 
-  document.getElementById('clock').style.background = hexColor;
+    document.getElementById('clock').style.background = hexColor;
 
-  setTimeout(function() {colorClock();}, 1000);
-console.log(clockFace);
+    setTimeout(function () {colorClock (); }, 1000);
+    console.log(clockFace);
 }
 colorClock();
 
 
-/*game areea*/
+/*game areea
 
 var myGamePiece;
 
@@ -182,4 +182,4 @@ function startGame() {
    } 
   function moveright() {
      myGamePiece.speedX += 1;
-   } 
+   } */

@@ -75,21 +75,37 @@
     <table id="xrate">
         <tr>
             <th>Data</th>
-            <th>20 Nov 2019</th>
+            <th id="data"></th>
+            <script>
+                var dt = new Date();
+                var dd = (dt.getDate());
+                if (dd < 10) {
+                    dd = '0' + dd;
+                }
+                var mm = (dt.getMonth()+1);
+                if (mm < 10) {
+                    mm = '0' + mm;
+                }
+                var yyyy = dt.getFullYear();
+                
+                var date_string = dd + "-" + mm + "-" + yyyy;
+                document.getElementById("data").innerHTML = date_string;
+                
+            </script>
         </tr>
         <tr>
             <th>Moneda</th>
             <th>Curs</th>
         </tr>
-        <tr class="date">
+        <tr class="info">
             <td>Euro</td>
             <td>4.7574</td>
         </tr>
-        <tr class="date">
+        <tr class="info">
             <td>Usd</td>
             <td>4.3223</td>
         </tr>
-         <tr class="date">
+         <tr class="info">
             <td>Gbp</td>
             <td>5.6442</td>
         </tr>
